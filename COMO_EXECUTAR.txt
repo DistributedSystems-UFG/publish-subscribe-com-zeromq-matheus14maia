@@ -1,0 +1,157 @@
+═══════════════════════════════════════════════════════════════════════
+  SISTEMA DE CHAT PUBLISH-SUBSCRIBE COM ZEROMQ
+═══════════════════════════════════════════════════════════════════════
+
+📋 PASSO 1: INSTALAR DEPENDÊNCIAS
+═══════════════════════════════════════════════════════════════════════
+
+Windows PowerShell:
+  pip install pyzmq
+
+Linux/Ubuntu:
+  pip3 install pyzmq
+  # OU
+  sudo apt install python3-zmq
+
+═══════════════════════════════════════════════════════════════════════
+📋 PASSO 2: EXECUTAR O SERVIDOR (PUBLISHER)
+═══════════════════════════════════════════════════════════════════════
+
+Abra um terminal e execute:
+
+  python publisher.py
+
+Escolha a opção:
+  1 - Modo Interativo (recomendado para testar)
+  2 - Modo Automático (envia mensagens automáticas)
+
+No modo interativo, envie mensagens assim:
+  > 1 Admin Bem-vindos ao chat!
+  > 2 TechGuru Python é incrível!
+  > broadcast Admin Mensagem para todos
+
+═══════════════════════════════════════════════════════════════════════
+📋 PASSO 3: EXECUTAR CLIENTES (SUBSCRIBERS)
+═══════════════════════════════════════════════════════════════════════
+
+Em OUTROS terminais (pode abrir vários), execute:
+
+  python subscriber.py
+
+Digite seu nome de usuário e escolha:
+  1 - Modo Interativo (recomendado)
+  2 - Modo Simples (recebe tudo)
+  3 - Modo Personalizado
+
+No modo interativo, use comandos:
+  > listar        (ver tópicos)
+  > todos         (inscrever em todos)
+  > inscrever     (escolher tópico)
+  > inscritos     (ver seus tópicos)
+  > sair          (sair do chat)
+
+═══════════════════════════════════════════════════════════════════════
+📋 OPÇÃO ALTERNATIVA: VER DEMONSTRAÇÃO AUTOMÁTICA
+═══════════════════════════════════════════════════════════════════════
+
+Para ver o sistema funcionando automaticamente:
+
+  python demo.py
+
+Este script simula múltiplos usuários e mostra mensagens em vários
+tópicos automaticamente!
+
+═══════════════════════════════════════════════════════════════════════
+📋 TÓPICOS DISPONÍVEIS
+═══════════════════════════════════════════════════════════════════════
+
+1. GERAL           - Chat geral para todos
+2. TECNOLOGIA      - Discussões sobre tecnologia
+3. ESPORTES        - Notícias e discussões esportivas
+4. ENTRETENIMENTO  - Filmes, música, séries
+5. NOTICIAS        - Notícias importantes
+6. SISTEMA         - Mensagens do sistema (sempre ativo)
+
+═══════════════════════════════════════════════════════════════════════
+📋 EXEMPLO DE USO COMPLETO
+═══════════════════════════════════════════════════════════════════════
+
+TERMINAL 1 (Publisher):
+  C:\> python publisher.py
+  Opção: 1
+  > 1 Admin Bem-vindos ao sistema!
+  > 2 TechNews Python 3.12 lançado!
+
+TERMINAL 2 (Subscriber - João):
+  C:\> python subscriber.py
+  Nome: João
+  Opção: 1
+  Comando > todos
+  💬 GERAL [14:30:25] Admin: Bem-vindos ao sistema!
+  💬 TECNOLOGIA [14:30:30] TechNews: Python 3.12 lançado!
+
+TERMINAL 3 (Subscriber - Maria):
+  C:\> python subscriber.py
+  Nome: Maria
+  Opção: 1
+  Comando > inscrever
+  Número: 3
+  💬 Aguardando mensagens de ESPORTES...
+
+═══════════════════════════════════════════════════════════════════════
+📋 ARQUIVOS IMPORTANTES
+═══════════════════════════════════════════════════════════════════════
+
+USAR ESTES (PRINCIPAIS):
+  ✓ publisher.py         - Servidor de chat completo
+  ✓ subscriber.py        - Cliente de chat completo
+  ✓ demo.py              - Demonstração automática
+  ✓ constPS.py           - Configuração (HOST e PORT)
+
+EXEMPLOS EXTRAS:
+  ✓ exemplo_extensao.py  - Recursos avançados (JSON, prioridades)
+  ✓ test_sistema.py      - Testes automatizados
+  ✓ publisher_chat.py    - Cópia do publisher.py
+  ✓ subscriber_chat.py   - Cópia do subscriber.py
+
+DOCUMENTAÇÃO:
+  ✓ README.md            - Documentação completa
+  ✓ GUIA_RAPIDO.md       - Guia rápido de uso
+  ✓ SOBRE_O_PROJETO.md   - Visão geral do projeto
+  ✓ COMO_EXECUTAR.txt    - Este arquivo
+
+═══════════════════════════════════════════════════════════════════════
+📋 PROBLEMAS COMUNS
+═══════════════════════════════════════════════════════════════════════
+
+❌ "Address already in use"
+  → Já existe um publisher rodando
+  → Feche-o ou mude a porta em constPS.py
+
+❌ "Connection refused"
+  → O publisher não está rodando
+  → Inicie o publisher primeiro
+
+❌ "Module 'zmq' not found"
+  → ZeroMQ não está instalado
+  → Execute: pip install pyzmq
+
+❌ Não recebo mensagens
+  → Inscreva-se em pelo menos um tópico
+  → Use o comando "todos" no subscriber
+
+═══════════════════════════════════════════════════════════════════════
+📋 DICAS
+═══════════════════════════════════════════════════════════════════════
+
+✓ Abra múltiplos terminais para simular vários usuários
+✓ Cada usuário pode se inscrever em tópicos diferentes
+✓ Mensagens são filtradas automaticamente por tópico
+✓ Use "broadcast" no publisher para enviar a todos
+✓ Veja demo.py para entender o funcionamento
+✓ Leia README.md para documentação completa
+
+═══════════════════════════════════════════════════════════════════════
+🎉 BOM CHAT!
+═══════════════════════════════════════════════════════════════════════
+
